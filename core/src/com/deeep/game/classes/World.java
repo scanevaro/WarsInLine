@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.deeep.game.HumanInput;
 import com.deeep.game.entities.Tank;
 
 /**
@@ -24,7 +25,8 @@ public class World extends Actor {
     private ClickListener clickListener = new ClickListener() {
         @Override
         public void clicked(InputEvent event, float x, float y) {
-
+            HumanInput.getHumanInput().setPosition(x, y);
+            System.out.println(x + "_ " + y);
         }
     };
 
@@ -35,8 +37,6 @@ public class World extends Actor {
 
         batch.setColor(color);
         batch.enableBlending();
-        //System.out.println(tank);
-        // System.out.println(HumanInput.getHumanInput());
         tank.draw((SpriteBatch) batch);
     }
 

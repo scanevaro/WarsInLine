@@ -15,20 +15,26 @@ public class Gun extends Entity {
     private static final int ANTI_AIR = 0;
     private static final int ANTI_INFANTRY = 1;
     private static final int ANTI_TANK = 2;
+    private float reloadTimes[];
     private int selectedGun = ANTI_AIR;
+    private float reloadTimer = 0;
     private Sprite sprites[];
     private ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     private Tank tank;
 
     public Gun(Tank tank) {
         sprites = new Sprite[3];
-        sprites[ANTI_AIR] = new Sprite(Assets.getAssets().getRegion("gun_aa"));
-        sprites[ANTI_INFANTRY] = new Sprite(Assets.getAssets().getRegion("gun_ai"));
-        sprites[ANTI_TANK] = new Sprite(Assets.getAssets().getRegion("gun_at"));
-        for (Sprite sprite : sprites) {
-            sprite.setOrigin(8, 16);
-        }
+        reloadTimes = new float[3];
+        setType(ANTI_AIR, "gun_aa", 0.1f);
+        setType(ANTI_INFANTRY, "gun_ai", 0.5f);
+        setType(ANTI_TANK, "gun_at", 0.25f);
         this.tank = tank;
+    }
+
+    private void setType(int type, String name, float reloadTime) {
+        sprites[type] = new Sprite(Assets.getAssets().getRegion(name));
+        reloadTimes[type] = reloadTime;
+        sprites[type].setOrigin(8, 16);
     }
 
     @Override
@@ -43,14 +49,19 @@ public class Gun extends Entity {
             sprite.setScale(1.5f);
         }
         if (Gdx.input.isTouched()) {
-            switch (selectedGun) {
-                default:
-                    bullets.add(new AABullet(x, y, (float) ( angle - Math.PI),tank.speed));
+            if (reloadTimer >= reloadTimes[selectedGun]) {
+                switch (selectedGun) {
+                    default:
+                        bullets.add(new AABullet(x, y, (float) (angle - Math.PI), tank.speed));
+                }
+                reloadTimer -= reloadTimes[selectedGun];
             }
         }
         for (Bullet bullet : bullets) {
             bullet.update(deltaT);
         }
+        if(reloadTimer<reloadTimes[selectedGun])
+        reloadTimer += deltaT;
     }
 
     public void setSelectedGun(int selection) {
