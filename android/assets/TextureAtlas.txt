@@ -1,0 +1,32 @@
+TextureAtlas.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gun_aa
+  rotate: false
+  xy: 2, 2
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+gun_ai
+  rotate: false
+  xy: 35, 2
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+gun_at
+  rotate: false
+  xy: 68, 2
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+tank
+  rotate: false
+  xy: 2, 35
+  size: 186, 31
+  orig: 186, 31
+  offset: 0, 0
+  index: -1
