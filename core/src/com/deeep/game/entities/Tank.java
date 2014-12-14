@@ -34,26 +34,26 @@ public class Tank extends MovingEntity {
     public void updateSpecific(float deltaT) {
         gun.update(deltaT);
         gun.setPosition(x, y);
-        updateSprites(deltaT);
+        updateSprites();
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             speed += 2;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-            angle += (Math.PI * 2) * deltaT * ((speed*.5f)/ maxSpeed)* .5f;
+            angle += (Math.PI * 2) * deltaT * ((speed * .5f) / maxSpeed) * .5f;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-            angle -= (Math.PI * 2) * deltaT * ((speed*.5f) / maxSpeed) * .5f;
+            angle -= (Math.PI * 2) * deltaT * ((speed * .5f) / maxSpeed) * .5f;
         }
     }
 
-    private void updateSprites(float deltaT) {
+    private void updateSprites() {
         float degrees = (float) Math.toDegrees(angle);
         for (Sprite sprite : sprites) {
             sprite.setCenter(x, y);
             sprite.setRotation(degrees);
             sprite.setScale(2);
         }
-        animationTimer += speed/maxSpeed;
+        animationTimer += speed / maxSpeed;
         animationTimer %= 6;
     }
 
@@ -61,7 +61,5 @@ public class Tank extends MovingEntity {
     public void draw(SpriteBatch spriteBatch) {
         sprites[((int) animationTimer)].draw(spriteBatch);
         gun.draw(spriteBatch);
-
-
     }
 }
