@@ -24,7 +24,7 @@ public class GameScreen implements Screen {
     public void show() {
         this.batch = game.batch;
         stage = new Stage(new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT), batch);
-        world = new World(game);
+        world = new World();
 
         stage.addActor(world);
     }
