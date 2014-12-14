@@ -19,14 +19,14 @@ public class Tank extends MovingEntity {
 
     public Tank(float x, float y) {
         super(x, y);
-        gun = new Gun();
+        gun = new Gun(this);
         TextureRegion textureRegion[][] = Assets.getAssets().getRegion("tank").split(31, 31);
         for (int i = 0; i < textureRegion[0].length; i++) {
             sprites[i] = new Sprite(textureRegion[0][i]);
             sprites[i].setOrigin(12, 16);
         }
         animation = new Animation(100, sprites);
-        friction = 0.05f;
+        friction = 0.5f;
         maxSpeed = 100;
     }
 
@@ -51,7 +51,7 @@ public class Tank extends MovingEntity {
         for (Sprite sprite : sprites) {
             sprite.setCenter(x, y);
             sprite.setRotation(degrees);
-            sprite.setScale(2);
+            sprite.setScale(1.5f);
         }
         animationTimer += speed / maxSpeed;
         animationTimer %= 6;

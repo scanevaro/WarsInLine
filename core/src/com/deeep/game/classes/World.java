@@ -18,7 +18,7 @@ public class World extends Actor {
     public World() {
         addListener(clickListener);
 
-        tank = new Tank(0, 0);
+        tank = new Tank(50, 50);
     }
 
     private ClickListener clickListener = new ClickListener() {
