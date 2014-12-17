@@ -64,7 +64,7 @@ public class Assets {
      */
     public void load() {
         if (!loaded) {
-            textureAtlas = new TextureAtlas(Gdx.files.internal("TextureAtlas.txt"));
+//            textureAtlas = new TextureAtlas(Gdx.files.internal("TextureAtlas.txt"));
 //            logger.system(Assets.class, "All assets have been loaded");
             loaded = true;
         }

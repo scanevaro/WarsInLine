@@ -23,8 +23,8 @@ public class GameScreen implements Screen {
     @Override
     public void show() {
         this.batch = game.batch;
-        stage = new Stage(new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT), batch);
-        world = new World(game);
+        stage = new Stage(new FitViewport(/*Core.VIRTUAL_WIDTH*/ 640, /*Core.VIRTUAL_HEIGHT*/ 480), batch);
+        world = new World();
 
         stage.addActor(world);
     }
