@@ -14,6 +14,7 @@ public class Pathfinder {
     private ArrayList<Node> closedNodes, path;
 
     public Pathfinder() {
+
     }
 
     public void findPath(int x, int y, int dx, int dy, Grid grid) {
