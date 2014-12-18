@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.deeep.game.Core;
-import com.deeep.game.classes.World;
+import com.deeep.game.util.World;
 
 /**
  * Created by scanevaro on 13/12/2014.

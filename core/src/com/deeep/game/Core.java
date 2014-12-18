@@ -4,9 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.deeep.game.classes.Assets;
-import com.deeep.game.classes.Settings;
 import com.deeep.game.screens.GameScreen;
+import com.deeep.game.util.Assets;
+import com.deeep.game.util.Settings;
 
 /**
  * This class is the entry point to the game
@@ -14,7 +14,7 @@ import com.deeep.game.screens.GameScreen;
 public class Core extends AbstractGame {
 
     public static float VIRTUAL_WIDTH = 960;
-    public static float VIRTUAL_HEIGHT = 540;
+    public static float VIRTUAL_HEIGHT = 511;
 
     public SpriteBatch batch;
     public OrthographicCamera camera;

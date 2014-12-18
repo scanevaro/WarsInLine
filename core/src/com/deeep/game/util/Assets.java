@@ -1,4 +1,4 @@
-package com.deeep.game.classes;
+package com.deeep.game.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * Time: 10:17 AM
  */
 public class Assets {
+
     /**
      * instance for singleton
      */
@@ -21,6 +22,9 @@ public class Assets {
      * Just a check to be sure that the assets aren't loaded multiple times
      */
     private static boolean loaded = false;
+    public Texture nonSolidTile, solidTile;
+    public Texture tileOverlay;
+    public Texture startNode, secondaryNode;
     /**
      * The atlases containing all the images
      */
@@ -65,6 +69,11 @@ public class Assets {
     public void load() {
         if (!loaded) {
             textureAtlas = new TextureAtlas(Gdx.files.internal("TextureAtlas.txt"));
+            solidTile = new Texture(Gdx.files.internal("solidTile.png"));
+            nonSolidTile = new Texture(Gdx.files.internal("nonSolidTile.png"));
+            tileOverlay = new Texture(Gdx.files.internal("tileOverlay.png"));
+            secondaryNode = new Texture(Gdx.files.internal("secondaryNode.png"));
+            startNode = new Texture(Gdx.files.internal("startNode.png"));
 //            logger.system(Assets.class, "All assets have been loaded");
             loaded = true;
         }

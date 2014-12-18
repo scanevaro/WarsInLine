@@ -6,15 +6,15 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.deeep.game.classes.Assets;
+import com.deeep.game.util.Assets;
 
 /**
  * Created by Elmar on 14-12-2014.
  */
 public class Tank extends MovingEntity {
+    Sprite sprites[] = new Sprite[6];
     private Gun gun;
     private Animation animation;
-    Sprite sprites[] = new Sprite[6];
     private float animationTimer = 0;
 
     public Tank(float x, float y) {

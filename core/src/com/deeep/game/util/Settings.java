@@ -1,4 +1,4 @@
-package com.deeep.game.classes;
+package com.deeep.game.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;

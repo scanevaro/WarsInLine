@@ -1,4 +1,4 @@
-package com.deeep.game.classes;
+package com.deeep.game.util;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -7,6 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.deeep.game.entities.Tank;
+import com.deeep.game.pathfinding.Pathfinder;
+import com.deeep.game.world.Grid;
 
 /**
  * Created by scanevaro on 13/12/2014.
@@ -14,19 +16,22 @@ import com.deeep.game.entities.Tank;
 public class World extends Actor {
 
     private Tank tank;
-
-    public World() {
-        addListener(clickListener);
-
-        tank = new Tank(0, 0);
-    }
-
+    private Grid grid;
+    private Pathfinder pathFinder;
     private ClickListener clickListener = new ClickListener() {
         @Override
         public void clicked(InputEvent event, float x, float y) {
 
         }
     };
+
+    public World() {
+        addListener(clickListener);
+        grid = new Grid();
+        pathFinder = new Pathfinder();
+        grid.tiles.get(11).node.getSurroundingNodes();
+        tank = new Tank(0, 0);
+    }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
@@ -37,6 +42,7 @@ public class World extends Actor {
         batch.enableBlending();
         //System.out.println(tank);
         // System.out.println(HumanInput.getHumanInput());
+        grid.draw((SpriteBatch) batch);
         tank.draw((SpriteBatch) batch);
     }
 

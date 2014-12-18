@@ -3,16 +3,16 @@ package com.deeep.game.entities;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.deeep.game.HumanInput;
-import com.deeep.game.classes.Assets;
+import com.deeep.game.util.Assets;
 
 /**
  * Created by Elmar on 14-12-2014.
  */
 public class Gun extends Entity {
     private static final int ANTI_AIR = 0;
+    private int selectedGun = ANTI_AIR;
     private static final int ANTI_INFANTRY = 1;
     private static final int ANTI_TANK = 2;
-    private int selectedGun = ANTI_AIR;
     private Sprite sprites[];
 
     public Gun() {
@@ -20,8 +20,8 @@ public class Gun extends Entity {
         sprites[ANTI_AIR] = new Sprite(Assets.getAssets().getRegion("gun_aa"));
         sprites[ANTI_INFANTRY] = new Sprite(Assets.getAssets().getRegion("gun_ai"));
         sprites[ANTI_TANK] = new Sprite(Assets.getAssets().getRegion("gun_at"));
-        for(Sprite sprite: sprites){
-            sprite.setOrigin(8,16);
+        for (Sprite sprite : sprites) {
+            sprite.setOrigin(8, 16);
         }
     }
 
