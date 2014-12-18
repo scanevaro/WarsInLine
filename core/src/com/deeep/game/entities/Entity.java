@@ -12,6 +12,9 @@ public abstract class Entity {
     protected float gridX, gridY;
     //rotation of the image in radians
     protected double angle;
+    private int entityId;
+    private int entityType;
+    private int playerId;
 
     public Entity() {
         reset();
@@ -66,5 +69,17 @@ public abstract class Entity {
 
     public String toString() {
         return "[" + x + " - " + y + "](" + gridX + ", " + gridY + ")" + "Facing: " + angle;
+    }
+
+    public int getEntityId() {
+        return entityId;
+    }
+
+    public int getEntityType() {
+        return entityType;
+    }
+
+    public int getPlayerId() {
+        return playerId;
     }
 }

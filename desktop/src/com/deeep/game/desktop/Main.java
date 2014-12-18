@@ -16,31 +16,16 @@
 
 package com.deeep.game.desktop;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.HeadlessException;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.UIManager;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeSelectionModel;
-import javax.swing.tree.TreeSelectionModel;
-
 import com.Data;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.lwjgl.LwjglAWTCanvas;
+
+import javax.swing.*;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeSelectionModel;
+import javax.swing.tree.TreeSelectionModel;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Main extends JFrame {
 	private static final long serialVersionUID = -4296204662394260962L;
@@ -83,67 +68,67 @@ public class Main extends JFrame {
 		},
 		new Object[] {
 				"Load models using libgdx",
-				new AppDesc("step 1: load a wavefrom model", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step1.LoadModelsTest.class, "loadmodels/data"),
-				new AppDesc("step 2: use assetmanager", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step2.LoadModelsTest.class, "loadmodels/data"),
-				new AppDesc("step 3: multiple instances", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step3.LoadModelsTest.class, "loadmodels/data"),
-				new AppDesc("step 4: use fbx-conv", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step4.LoadModelsTest.class, "loadmodels/data")
+				new AppDesc("step 1: load a wavefrom model", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step1.LoadModelsTest.class, "loadmodels"),
+				new AppDesc("step 2: use assetmanager", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step2.LoadModelsTest.class, "loadmodels"),
+				new AppDesc("step 3: multiple instances", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step3.LoadModelsTest.class, "loadmodels"),
+				new AppDesc("step 4: use fbx-conv", 640, 480, com.xoppa.blog.libgdx.g3d.loadmodels.step4.LoadModelsTest.class, "loadmodels")
 		},
 		new Object[] {
 				"Loading a scene using libgdx",
-				new AppDesc("step 1: coding a scene", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step1.LoadSceneTest.class, "loadscene/data"),
-				new AppDesc("step 2: combining models", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step2.LoadSceneTest.class, "loadscene/data"),
-				new AppDesc("step 3: loading a modeled scene", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step3.LoadSceneTest.class, "loadscene/data")
+				new AppDesc("step 1: coding a scene", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step1.LoadSceneTest.class, "loadscene"),
+				new AppDesc("step 2: combining models", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step2.LoadSceneTest.class, "loadscene"),
+				new AppDesc("step 3: loading a modeled scene", 640, 480, com.xoppa.blog.libgdx.g3d.loadscene.step3.LoadSceneTest.class, "loadscene")
 		},
 		new Object[] {
 				"Behind the 3D scenes",
-				new AppDesc("step 1: base code", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step1.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 2: using ModelLoader", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step2.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 3: change material by NodePart", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step3.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 4: change material by name", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step4.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 5: change material per ModelInstance", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step5.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 6: using a Renderable", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step6.BehindTheScenesTest.class, "behindscenes/data"),
-				new AppDesc("step 7: using a Shader", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step7.BehindTheScenesTest.class, "behindscenes/data")
+				new AppDesc("step 1: base code", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step1.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 2: using ModelLoader", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step2.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 3: change material by NodePart", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step3.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 4: change material by name", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step4.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 5: change material per ModelInstance", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step5.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 6: using a Renderable", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step6.BehindTheScenesTest.class, "behindscenes"),
+				new AppDesc("step 7: using a Shader", 640, 480, com.xoppa.blog.libgdx.g3d.behindscenes.step7.BehindTheScenesTest.class, "behindscenes")
 		},
 		new Object[] {
 				"Creating a shader with libgdx",
-				new AppDesc("step 1: render a sphere", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step1.ShaderTest.class, "createshader/data"),
-				new AppDesc("step 2: render points", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step2.ShaderTest.class, "createshader/data"),
-				new AppDesc("step 3: customize default shader", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step3.ShaderTest.class, "createshader/data"),
-				new AppDesc("step 4: implement shader", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step4.ShaderTest.class, "createshader/data"),
-				new AppDesc("step 5: enable depth test", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step5.ShaderTest.class, "createshader/data"),
-				new AppDesc("step 6: cache uniform locations", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step6.ShaderTest.class, "createshader/data")
+				new AppDesc("step 1: render a sphere", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step1.ShaderTest.class, "createshader"),
+				new AppDesc("step 2: render points", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step2.ShaderTest.class, "createshader"),
+				new AppDesc("step 3: customize default shader", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step3.ShaderTest.class, "createshader"),
+				new AppDesc("step 4: implement shader", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step4.ShaderTest.class, "createshader"),
+				new AppDesc("step 5: enable depth test", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step5.ShaderTest.class, "createshader"),
+				new AppDesc("step 6: cache uniform locations", 640, 480, com.xoppa.blog.libgdx.g3d.createshader.step6.ShaderTest.class, "createshader")
 		},
 		new Object[] {
 				"Using materials with libgdx",
-				new AppDesc("step 1: using modelbatch", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step1.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 2: add a uniform", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step2.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 3: using userData", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step3.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 4: using ColorAttribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step4.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 5: implement canRender", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step5.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 6: add another color", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step6.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 7: use custom attribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step7.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 8: update canRender", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step8.MaterialTest.class, "usingmaterials/data"),
-				new AppDesc("step 9: create custom attribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step9.MaterialTest.class, "usingmaterials/data")
+				new AppDesc("step 1: using modelbatch", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step1.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 2: add a uniform", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step2.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 3: using userData", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step3.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 4: using ColorAttribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step4.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 5: implement canRender", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step5.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 6: add another color", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step6.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 7: use custom attribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step7.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 8: update canRender", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step8.MaterialTest.class, "usingmaterials"),
+				new AppDesc("step 9: create custom attribute", 640, 480, com.xoppa.blog.libgdx.g3d.usingmaterials.step9.MaterialTest.class, "usingmaterials")
 		},
 		new Object[] {
 				"3D Frustum culling",
-				new AppDesc("step 1: no frustum culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step1.FrustumCullingTest.class, "loadscene/data"),
-				new AppDesc("step 2: position culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step2.FrustumCullingTest.class, "loadscene/data"),
-				new AppDesc("step 3: bounds culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step3.FrustumCullingTest.class, "loadscene/data"),
-				new AppDesc("step 4: sphere culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step4.FrustumCullingTest.class, "loadscene/data")
+				new AppDesc("step 1: no frustum culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step1.FrustumCullingTest.class, "loadscene"),
+				new AppDesc("step 2: position culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step2.FrustumCullingTest.class, "loadscene"),
+				new AppDesc("step 3: bounds culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step3.FrustumCullingTest.class, "loadscene"),
+				new AppDesc("step 4: sphere culling", 640, 480, com.xoppa.blog.libgdx.g3d.frustumculling.step4.FrustumCullingTest.class, "loadscene")
 		},
 		new Object[] {
 				"Ray picking",
-				new AppDesc("step 1: selecting objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step1.RayPickingTest.class, "loadscene/data"),
-				new AppDesc("step 2: moving objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step2.RayPickingTest.class, "loadscene/data"),
-				new AppDesc("step 3: preciser selecting objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step3.RayPickingTest.class, "loadscene/data")
+				new AppDesc("step 1: selecting objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step1.RayPickingTest.class, "loadscene"),
+				new AppDesc("step 2: moving objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step2.RayPickingTest.class, "loadscene"),
+				new AppDesc("step 3: preciser selecting objects", 640, 480, com.xoppa.blog.libgdx.g3d.raypicking.step3.RayPickingTest.class, "loadscene")
 		},
 		new Object[] {
 			"Shapes",
-			new AppDesc("step 1: move code to GameObject", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step1.ShapeTest.class, "loadscene/data"),
-			new AppDesc("step 2: Sphere shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step2.ShapeTest.class, "loadscene/data"),
-			new AppDesc("step 3: Box shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step3.ShapeTest.class, "loadscene/data"),
-			new AppDesc("step 4: Disc shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step4.ShapeTest.class, "loadscene/data")
+			new AppDesc("step 1: move code to GameObject", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step1.ShapeTest.class, "loadscene"),
+			new AppDesc("step 2: Sphere shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step2.ShapeTest.class, "loadscene"),
+			new AppDesc("step 3: Box shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step3.ShapeTest.class, "loadscene"),
+			new AppDesc("step 4: Disc shape", 640, 480, com.xoppa.blog.libgdx.g3d.shapes.step4.ShapeTest.class, "loadscene")
 		},
 		new Object[] {
 			"Bullet: Collision detection",
