@@ -29,7 +29,7 @@ public class World extends Actor {
         addListener(clickListener);
         grid = new Grid();
         pathFinder = new Pathfinder();
-        grid.tiles.get(11).node.getSurroundingNodes();
+        pathFinder.findPath(2, 2, 4, 4, grid);
         tank = new Tank(0, 0);
     }
 

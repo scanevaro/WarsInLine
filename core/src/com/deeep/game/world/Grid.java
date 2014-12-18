@@ -42,4 +42,8 @@ public class Grid {
         }
     }
 
+    public Tile getTile(int x, int y) {
+        return tiles.get(x + y * HEIGHT);
+    }
+
 }

@@ -29,8 +29,10 @@ public class Tile {
         if (isSolid) batch.draw(Assets.getAssets().solidTile, renderX, renderY);
         else batch.draw(Assets.getAssets().nonSolidTile, renderX, renderY);
         batch.draw(Assets.getAssets().tileOverlay, renderX, renderY);
-        if (node.startNode) batch.draw(Assets.getAssets().startNode, renderX, renderY);
         if (node.secondaryNode) batch.draw(Assets.getAssets().secondaryNode, renderX, renderY);
+        if (node.startNode) batch.draw(Assets.getAssets().startNode, renderX, renderY);
+        if (node.initialNode) batch.draw(Assets.getAssets().initialNode, renderX, renderY);
+        if (node.finalNode) batch.draw(Assets.getAssets().finalNode, renderX, renderY);
     }
 
     public void update(float delta) {

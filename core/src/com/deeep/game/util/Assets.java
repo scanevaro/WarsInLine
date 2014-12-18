@@ -24,7 +24,7 @@ public class Assets {
     private static boolean loaded = false;
     public Texture nonSolidTile, solidTile;
     public Texture tileOverlay;
-    public Texture startNode, secondaryNode;
+    public Texture startNode, secondaryNode, initialNode, finalNode;
     /**
      * The atlases containing all the images
      */
@@ -74,6 +74,8 @@ public class Assets {
             tileOverlay = new Texture(Gdx.files.internal("tileOverlay.png"));
             secondaryNode = new Texture(Gdx.files.internal("secondaryNode.png"));
             startNode = new Texture(Gdx.files.internal("startNode.png"));
+            finalNode = new Texture(Gdx.files.internal("finalNode.png"));
+            initialNode = new Texture(Gdx.files.internal("initialNode.png"));
 //            logger.system(Assets.class, "All assets have been loaded");
             loaded = true;
         }
