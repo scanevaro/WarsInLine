@@ -2,7 +2,6 @@ package com.deeep.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.deeep.game.classes.Assets;
 import com.deeep.game.classes.Settings;
@@ -17,7 +16,6 @@ public class Core extends AbstractGame {
     public static float VIRTUAL_HEIGHT = 540;
 
     public SpriteBatch batch;
-    public OrthographicCamera camera;
 
     /**
      * Called when the {@link com.badlogic.gdx.Application} is first created.
@@ -27,8 +25,6 @@ public class Core extends AbstractGame {
         Settings.load();
         Assets.getAssets().load();
         batch = new SpriteBatch();
-        camera = new OrthographicCamera(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
-        camera.position.set(VIRTUAL_WIDTH / 2, VIRTUAL_HEIGHT / 2, 0);
 
         setScreen(new GameScreen(this));
     }
