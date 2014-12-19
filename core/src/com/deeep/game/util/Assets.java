@@ -113,7 +113,7 @@ public class Assets {
     public BitmapFont loadBitmapFont() {
         Texture texture = new Texture(Gdx.files.internal("font/font.png"));
 
-        BitmapFont font = new BitmapFont(Gdx.files.internal("font/font.fnt"), new TextureRegion(texture), false);
+        font = new BitmapFont(Gdx.files.internal("font/font.fnt"), new TextureRegion(texture), false);
         if (font != null) return font;
         System.out.println("Couldn't find specified font!");
         return null;
