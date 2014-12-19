@@ -38,6 +38,7 @@ public class Assets {
      * Standard font
      */
     private BitmapFont font;
+    private BitmapFont.BitmapFontData bitmapFontData;
 
     /**
      * Find a use for this, if there is any TODO
@@ -68,6 +69,7 @@ public class Assets {
      */
     public void load() {
         if (!loaded) {
+            bitmapFontData = new BitmapFont.BitmapFontData(Gdx.files.internal("font/font.fnt"), false);
             textureAtlas = new TextureAtlas(Gdx.files.internal("TextureAtlas.txt"));
             solidTile = new Texture(Gdx.files.internal("solidTile.png"));
             nonSolidTile = new Texture(Gdx.files.internal("nonSolidTile.png"));

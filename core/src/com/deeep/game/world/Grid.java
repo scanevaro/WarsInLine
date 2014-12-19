@@ -1,5 +1,6 @@
 package com.deeep.game.world;
 
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Grid {
     public final int WIDTH = 20;
     public final int HEIGHT = 10;
     public ArrayList<Tile> tiles;
+    private BitmapFont font;
 
     public Grid() {
         tiles = new ArrayList<Tile>();

@@ -1,6 +1,7 @@
 package com.deeep.game.pathfinding;
 
 import com.deeep.game.world.Grid;
+import com.deeep.game.world.Tile;
 
 import java.util.ArrayList;
 
@@ -21,8 +22,11 @@ public class Pathfinder {
 
     }
 
-    private void calculateNodeValues(Node startNode, Node[] openNodes) {
-
+    private void calculateHeuristicValues(Grid grid, Node start, Node end) {
+        for (Tile t : grid.tiles) {
+            Node n = t.node;
+            n.h = (int) Math.abs(n.parentTile.x - start.parentTile.x);
+        }
     }
 
 }
