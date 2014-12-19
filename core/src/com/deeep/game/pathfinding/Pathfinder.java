@@ -19,7 +19,7 @@ public class Pathfinder {
     }
 
     public void findPath(int x, int y, int dx, int dy, Grid grid) {
-
+        calculateHeuristicValues(grid, grid.getTile(x, y).node, grid.getTile(dx, dy).node);
     }
 
     private void calculateHeuristicValues(Grid grid, Node start, Node end) {

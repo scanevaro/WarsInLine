@@ -33,6 +33,9 @@ public class Tile {
         if (node.startNode) batch.draw(Assets.getAssets().startNode, renderX, renderY);
         if (node.initialNode) batch.draw(Assets.getAssets().initialNode, renderX, renderY);
         if (node.finalNode) batch.draw(Assets.getAssets().finalNode, renderX, renderY);
+        if (node.h > 0) {
+            Assets.getAssets().getBitmapFont().draw(batch, node.h + "", renderX, renderY);
+        }
     }
 
     public void update(float delta) {

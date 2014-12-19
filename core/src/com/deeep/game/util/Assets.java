@@ -78,7 +78,7 @@ public class Assets {
             startNode = new Texture(Gdx.files.internal("startNode.png"));
             finalNode = new Texture(Gdx.files.internal("finalNode.png"));
             initialNode = new Texture(Gdx.files.internal("initialNode.png"));
-//            logger.system(Assets.class, "All assets have been loaded");
+            loadBitmapFont();
             loaded = true;
         }
     }
@@ -115,7 +115,7 @@ public class Assets {
 
         BitmapFont font = new BitmapFont(Gdx.files.internal("font/font.fnt"), new TextureRegion(texture), false);
         if (font != null) return font;
-//        Logger.getInstance().error(this.getClass(), "Couldn't find specified font!");
+        System.out.println("Couldn't find specified font!");
         return null;
     }
 
