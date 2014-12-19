@@ -25,7 +25,7 @@ public class Pathfinder {
     private void calculateHeuristicValues(Grid grid, Node start, Node end) {
         for (Tile t : grid.tiles) {
             Node n = t.node;
-            n.h = (int) Math.abs(n.parentTile.x - start.parentTile.x);
+            n.h = (int) Math.abs(n.parentTile.x - start.parentTile.x) + (int) Math.abs(n.parentTile.y - start.parentTile.y);
         }
     }
 
