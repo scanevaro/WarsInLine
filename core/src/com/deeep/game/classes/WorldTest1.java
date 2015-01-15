@@ -21,6 +21,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 import com.deeep.game.Core;
 
 /**
@@ -34,7 +36,8 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
 
     public AssetManager assets;
 
-    public PerspectiveCamera cam;
+    public PerspectiveCamera camera;
+    public Viewport viewport;
     public CameraInputController inputController;
     public ModelBatch modelBatch;
     public Model axesModel;
@@ -76,12 +79,13 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
 
         modelBatch = new ModelBatch();
 
-        cam = new PerspectiveCamera(67, Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT);
-        cam.position.set(10f, 10f, 10f);
-        cam.lookAt(0, 0, 0);
-        cam.near = 0.1f;
-        cam.far = 1000f;
-        cam.update();
+        camera = new PerspectiveCamera();
+        camera.fieldOfView = 67;
+        camera.position.set(10f, 10f, 10f);
+        camera.lookAt(0, 0, 0);
+        camera.near = 0.1f;
+        camera.far = 1000f;
+        viewport = new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT, camera);
 
         ModelBuilder modelBuilder = new ModelBuilder();
         modelBuilder.begin();
@@ -101,7 +105,7 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
         axesModel = modelBuilder.end();
         axesInstance = new ModelInstance(axesModel);
 
-        Gdx.input.setInputProcessor(inputController = new CameraInputController(cam));
+        Gdx.input.setInputProcessor(inputController = new CameraInputController(camera));
 
         lights = new Environment();
         lights.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1.f));
@@ -109,9 +113,9 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
                 .set(0.8f, 0.8f, 0.8f, -.4f, -.4f, -.4f));
         lights.shadowMap = shadowLight;
         inputController.rotateLeftKey = inputController.rotateRightKey = inputController.forwardKey = inputController.backwardKey = 0;
-        cam.position.set(25, 25, 25);
-        cam.lookAt(0, 0, 0);
-        cam.update();
+        camera.position.set(25, 25, 25);
+        camera.lookAt(0, 0, 0);
+        camera.update();
         assets.load("data/g3d/skydome.g3db", Model.class);
         assets.load("data/g3d/concrete.png", Texture.class);
         assets.load("data/tree.png", Texture.class);
@@ -197,7 +201,7 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
         }
 
         if (character != null) {
-            shadowLight.begin(character.transform.getTranslation(tmpVector), cam.direction);
+            shadowLight.begin(character.transform.getTranslation(tmpVector), camera.direction);
             shadowBatch.begin(shadowLight.getCamera());
             if (character != null) shadowBatch.render(character);
             if (tree != null) shadowBatch.render(tree);
@@ -235,10 +239,7 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
 
         inputController.update();
 
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-        Gdx.gl.glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a);
-
-        modelBatch.begin(cam);
+        modelBatch.begin(camera);
         if (showAxes) modelBatch.render(axesInstance);
         if (instances != null) {
             modelBatch.render(instances, lights);
@@ -276,6 +277,10 @@ public class WorldTest1 extends Actor implements InputProcessor, Disposable {
         modelBatch.dispose();
         assets.dispose();
         assets = null;
+    }
+
+    public void resize(int width, int height) {
+        viewport.update(width, height);
     }
 
     @Override
