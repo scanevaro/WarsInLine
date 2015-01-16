@@ -3,7 +3,6 @@ package com.deeep.game.screens;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.deeep.game.Core;
 import com.deeep.game.classes.WorldTest2;
 
@@ -23,20 +22,20 @@ public class GameScreen implements Screen {
     @Override
     public void show() {
         this.batch = game.batch;
-        stage = new Stage(new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT), batch);
+//        stage = new Stage(new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT), batch);
         world = new WorldTest2();
     }
 
     @Override
     public void render(float delta) {
         world.render();
-        stage.act();
-        stage.draw();
+//        stage.act();
+//        stage.draw();
     }
 
     @Override
     public void resize(int width, int height) {
-        stage.getViewport().update(width, height);
+//        stage.getViewport().update(width, height);
         world.resize(width, height);
     }
 
