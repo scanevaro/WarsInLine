@@ -6,10 +6,10 @@ import com.badlogic.gdx.math.collision.Ray;
 /**
  * Created by scanevaro on 15/01/2015.
  */
-public class WorldTest3InputAdapter extends InputAdapter {
-    private WorldTest3 worldTest3;
+public class WorldTest2InputAdapter extends InputAdapter {
+    private WorldTest2 worldTest3;
 
-    public WorldTest3InputAdapter(WorldTest3 worldTest3) {
+    public WorldTest2InputAdapter(WorldTest2 worldTest3) {
         this.worldTest3 = worldTest3;
     }
 
