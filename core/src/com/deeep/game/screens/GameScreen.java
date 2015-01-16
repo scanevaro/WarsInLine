@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.deeep.game.Core;
-import com.deeep.game.classes.WorldTest1;
+import com.deeep.game.classes.WorldTest3;
 
 /**
  * Created by scanevaro on 13/12/2014.
@@ -14,7 +14,7 @@ public class GameScreen implements Screen {
     private Core game;
     private SpriteBatch batch;
     private Stage stage;
-    private WorldTest1 world;
+    private WorldTest3 world;
 
     public GameScreen(Core game) {
         this.game = game;
@@ -24,13 +24,12 @@ public class GameScreen implements Screen {
     public void show() {
         this.batch = game.batch;
         stage = new Stage(new FitViewport(Core.VIRTUAL_WIDTH, Core.VIRTUAL_HEIGHT), batch);
-        world = new WorldTest1();
-
-        stage.addActor(world);
+        world = new WorldTest3();
     }
 
     @Override
     public void render(float delta) {
+        world.render();
         stage.act();
         stage.draw();
     }
